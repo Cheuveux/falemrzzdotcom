@@ -45,7 +45,7 @@ export default function SiteHeader() {
   };
 
   return (
-    <header className="flex flex-col w-full items-center justify-between bg-gradient-to-b from-gray-800 to-black p-4 shadow-2xl border-b-4 border-yellow-400 h-fitcontent">
+    <header className="flex flex-col w-full items-center justify-between bg-gradient-to-b from-gray-800 to-black shadow-2xl border-b-4 border-yellow-400 h-fitcontent">
       {/* Logo en haut au centre */}
       <div className="flex justify-center w-70 mb-4">
         <Link href="/" className="flex justify-center">
@@ -76,7 +76,8 @@ export default function SiteHeader() {
       </Link>
 
       {/* Navigation desktop en bas */}
-      <nav className="hidden md:flex w-full justify-between items-center px-8  bg-yellow-800 h-32">
+      <nav className="md:flex w-full justify-around items-center border-b-5 border-t-5 border-yellow-700 bg-yellow-800 h-32 ">
+
         {NAV_LINKS.map((link) => (
           <div
             key={link.href}

@@ -16,6 +16,11 @@
   --font-body: var(--font-inter);
 }
 
+main {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+}
 body {
   background: var(--color-paper);
   color: var(--color-ink);
@@ -50,3 +55,18 @@ body {
   }
 }
 
+/* FOOTER */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+  display: flex;
+  width: max-content;
+}

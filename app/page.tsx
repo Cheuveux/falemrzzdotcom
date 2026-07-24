@@ -14,7 +14,7 @@ export default async function Home() {
   ]);
 
   return (
-    <main className="">
+    <main className="min-h-100vh">
       <SiteHeader />
       {/* <Hero /> */}
       {/* <ProductGrid products={products} /> */}
