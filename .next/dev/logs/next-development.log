@@ -1,0 +1,34 @@
+{"timestamp":"00:00:02.779","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:00:46.107","source":"Server","level":"WARN","message":"⚠ Blocked cross-origin request to Next.js dev resource /_next/webpack-hmr from \"192.168.1.68\".\nCross-origin access to Next.js dev resources is blocked by default for safety.\n\nTo allow this host in development, add it to \"allowedDevOrigins\" in next.config.js and restart the dev server:\n\n// next.config.js\nmodule.exports = {\n  allowedDevOrigins: ['192.168.1.68'],\n}\n\nRead more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins"}
+{"timestamp":"00:00:52.168","source":"Server","level":"ERROR","message":"⨯ \"upstream image response failed for\" \"https://images.unsplash.com/photo-1528812969535-4bcefadc1a3f?w=1200&q=80\" 404"}
+{"timestamp":"00:00:58.295","source":"Server","level":"ERROR","message":"⨯ \"upstream image response failed for\" \"https://images.unsplash.com/photo-1528812969535-4bcefadc1a3f?w=1200&q=80\" 404"}
+{"timestamp":"00:01:05.764","source":"Server","level":"ERROR","message":"⨯ \"upstream image response failed for\" \"https://images.unsplash.com/photo-1528812969535-4bcefadc1a3f?w=1200&q=80\" 404"}
+{"timestamp":"00:01:08.701","source":"Server","level":"ERROR","message":"⨯ \"upstream image response failed for\" \"https://images.unsplash.com/photo-1528812969535-4bcefadc1a3f?w=1200&q=80\" 404"}
+{"timestamp":"00:01:54.257","source":"Server","level":"LOG","message":"✓ Compiled in 26ms"}
+{"timestamp":"00:02:35.466","source":"Server","level":"LOG","message":"✓ Compiled in 26ms"}
+{"timestamp":"00:07:40.199","source":"Server","level":"LOG","message":"✓ Compiled in 23ms"}
+{"timestamp":"00:20:43.696","source":"Server","level":"LOG","message":"✓ Compiled in 48ms"}
+{"timestamp":"00:20:50.012","source":"Server","level":"LOG","message":"✓ Compiled in 24ms"}
+{"timestamp":"00:26:26.788","source":"Server","level":"LOG","message":"✓ Compiled in 21ms"}
+{"timestamp":"00:59:01.199","source":"Server","level":"LOG","message":"✓ Compiled in 34ms"}
+{"timestamp":"01:01:36.169","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:08:20.522","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:09:24.703","source":"Server","level":"LOG","message":"✓ Compiled in 24ms"}
+{"timestamp":"01:09:30.574","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:09:33.252","source":"Browser","level":"ERROR","message":"Erreur lors de la lecture du son : {}"}
+{"timestamp":"01:09:33.253","source":"Server","level":"ERROR","message":"[browser] \"Erreur lors de la lecture du son :\" \"\\u001b[31mNotSupportedError: The media resource indicated by the src attribute or assigned media provider object was not suitable.\\u001b[39m\""}
+{"timestamp":"01:09:33.253","source":"Browser","level":"ERROR","message":"Erreur lors de la lecture du son : \"\\u001b[31mNotSupportedError: The media resource indicated by the src attribute or assigned media provider object was not suitable.\\u001b[39m\""}
+{"timestamp":"01:09:41.271","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:09:42.049","source":"Browser","level":"ERROR","message":"Erreur lors de la lecture du son : {}"}
+{"timestamp":"01:09:42.050","source":"Server","level":"ERROR","message":"[browser] \"Erreur lors de la lecture du son :\" \"\\u001b[31mNotSupportedError: The media resource indicated by the src attribute or assigned media provider object was not suitable.\\u001b[39m\""}
+{"timestamp":"01:09:42.050","source":"Browser","level":"ERROR","message":"Erreur lors de la lecture du son : \"\\u001b[31mNotSupportedError: The media resource indicated by the src attribute or assigned media provider object was not suitable.\\u001b[39m\""}
+{"timestamp":"01:10:22.217","source":"Browser","level":"ERROR","message":"Erreur lors de la lecture du son : {}"}
+{"timestamp":"01:10:22.218","source":"Server","level":"ERROR","message":"[browser] \"Erreur lors de la lecture du son :\" \"\\u001b[31mNotSupportedError: The media resource indicated by the src attribute or assigned media provider object was not suitable.\\u001b[39m\""}
+{"timestamp":"01:10:22.218","source":"Browser","level":"ERROR","message":"Erreur lors de la lecture du son : \"\\u001b[31mNotSupportedError: The media resource indicated by the src attribute or assigned media provider object was not suitable.\\u001b[39m\""}
+{"timestamp":"01:10:26.172","source":"Browser","level":"ERROR","message":"Erreur lors de la lecture du son : {}"}
+{"timestamp":"01:10:26.172","source":"Server","level":"ERROR","message":"[browser] \"Erreur lors de la lecture du son :\" \"\\u001b[31mNotSupportedError: The media resource indicated by the src attribute or assigned media provider object was not suitable.\\u001b[39m\""}
+{"timestamp":"01:10:26.173","source":"Browser","level":"ERROR","message":"Erreur lors de la lecture du son : \"\\u001b[31mNotSupportedError: The media resource indicated by the src attribute or assigned media provider object was not suitable.\\u001b[39m\""}
+{"timestamp":"01:10:39.094","source":"Server","level":"LOG","message":"✓ Compiled in 22ms"}
+{"timestamp":"01:10:40.605","source":"Browser","level":"INFO","message":"%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"}
+{"timestamp":"01:11:08.840","source":"Server","level":"LOG","message":"✓ Compiled in 21ms"}
+{"timestamp":"01:11:18.096","source":"Server","level":"LOG","message":"✓ Compiled in 22ms"}

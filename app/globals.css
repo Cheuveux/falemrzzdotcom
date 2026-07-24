@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Palette — "Atelier" : pierre chaude, encre, mousse profonde, brique */
+  --color-paper: #FFFFF3;
+  --color-paper-dim: #E1D9C7;
+  --color-ink: #211E19;
+  --color-ink-soft: #4A453D;
+  --color-moss: #3E4B37;
+  --color-moss-dim: #5C6B52;
+  --color-brick: #A3462E;
+  --color-brass: #C2A05F;
+  --color-line: #C9BFA9;
+
+  --font-display: var(--font-fraunces);
+  --font-body: var(--font-inter);
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Numeros de "look" style catalogue de mode : encode l'ordre reel des pieces */
+.look-index {
+  font-family: var(--font-display);
+  font-variant-numeric: oldstyle-nums;
+}
+
+/* Texte vertical facon dos de magazine, signature du header */
+.vertical-rl {
+  writing-mode: vertical-rl;
+}
+
+::selection {
+  background: var(--color-brick);
+  color: var(--color-paper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* HEADER STYLE */
+
+.header_logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: auto;
+  object-fit: contain;
+}
+
+.header_logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

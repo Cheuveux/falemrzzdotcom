@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "handle": "teinture-vegetale-atelier",
+    "title": "Dans l'atelier de teinture végétale",
+    "excerpt": "Une matinée avec Elena, qui prépare ses bains d'indigo depuis douze ans.",
+    "image": "https://images.unsplash.com/photo-1528812969535-4bcefadc1a3f?w=1200&q=80",
+    "date": "2026-06-02"
+  },
+  {
+    "id": "2",
+    "handle": "choisir-son-lin",
+    "title": "Comment on choisit un lin",
+    "excerpt": "Poids, tombé, origine : ce qui distingue un bon lin d'un lin ordinaire.",
+    "image": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&q=80",
+    "date": "2026-05-18"
+  },
+  {
+    "id": "3",
+    "handle": "petites-series-pourquoi",
+    "title": "Pourquoi nous ne faisons que des petites séries",
+    "excerpt": "Le choix de produire moins, mais de le faire correctement.",
+    "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1200&q=80",
+    "date": "2026-04-30"
+  }
+]
