@@ -43,124 +43,129 @@ const NAV_LINKS = [
 function SiteHeader() {
     _s();
     const [menuOpen, setMenuOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$taff$2f$web_design$2f$flamerzz$2f$flamerzz_site$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    // Fonction pour jouer un son
     const playSound = (soundPath)=>{
         const audio = new Audio(soundPath);
         audio.play().catch((error)=>{
             console.error("Erreur lors de la lecture du son :", error);
         });
     };
-    // Gestion du clic sur un lien de navigation
     const handleNavClick = (soundPath)=>{
         playSound(soundPath);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$taff$2f$web_design$2f$flamerzz$2f$flamerzz_site$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("header", {
-        className: "flex flex-col items-center justify-between h-32",
+        className: "flex flex-col w-full items-center justify-between bg-gradient-to-b from-gray-800 to-black p-4 shadow-2xl border-b-4 border-yellow-400 h-fitcontent",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$taff$2f$web_design$2f$flamerzz$2f$flamerzz_site$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex justify-center w-full",
+                className: "flex justify-center w-70 mb-4",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$taff$2f$web_design$2f$flamerzz$2f$flamerzz_site$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$taff$2f$web_design$2f$flamerzz$2f$flamerzz_site$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                     href: "/",
-                    className: "header_logo",
+                    className: "flex justify-center",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$taff$2f$web_design$2f$flamerzz$2f$flamerzz_site$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
                         src: "/visual_assets/flamerz_logo.png",
-                        alt: "Flamerz Logo"
+                        alt: "Flamerz Logo",
+                        className: "drop-shadow-[0_0_10px_#FFD700] transform hover:scale-105 transition-transform duration-300"
                     }, void 0, false, {
                         fileName: "[project]/Desktop/taff/web_design/flamerzz/flamerzz_site/components/SiteHeader.tsx",
-                        lineNumber: 54,
+                        lineNumber: 52,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/Desktop/taff/web_design/flamerzz/flamerzz_site/components/SiteHeader.tsx",
-                    lineNumber: 53,
+                    lineNumber: 51,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Desktop/taff/web_design/flamerzz/flamerzz_site/components/SiteHeader.tsx",
-                lineNumber: 52,
+                lineNumber: 50,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$taff$2f$web_design$2f$flamerzz$2f$flamerzz_site$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                className: "md:hidden font-body text-sm uppercase tracking-wide absolute top-4 left-4",
+                className: "md:hidden font-body text-sm uppercase tracking-wide absolute top-6 left-4 bg-yellow-400 text-black px-3 py-1 rounded border-2 border-black hover:bg-yellow-300 transition-colors",
                 onClick: ()=>setMenuOpen((v)=>!v),
                 "aria-expanded": menuOpen,
                 "aria-controls": "mobile-nav",
                 children: menuOpen ? "Fermer" : "Menu"
             }, void 0, false, {
                 fileName: "[project]/Desktop/taff/web_design/flamerzz/flamerzz_site/components/SiteHeader.tsx",
-                lineNumber: 59,
+                lineNumber: 61,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$taff$2f$web_design$2f$flamerzz$2f$flamerzz_site$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$taff$2f$web_design$2f$flamerzz$2f$flamerzz_site$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                 href: "/panier",
-                className: "md:hidden font-body text-sm uppercase tracking-wide absolute top-4 right-4",
+                className: "md:hidden font-body text-sm uppercase tracking-wide absolute top-6 right-4 bg-yellow-400 text-black px-3 py-1 rounded border-2 border-black hover:bg-yellow-300 transition-colors",
                 children: "Panier"
             }, void 0, false, {
                 fileName: "[project]/Desktop/taff/web_design/flamerzz/flamerzz_site/components/SiteHeader.tsx",
-                lineNumber: 69,
+                lineNumber: 71,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$taff$2f$web_design$2f$flamerzz$2f$flamerzz_site$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
-                className: "hidden md:flex w-full justify-between px-8",
-                children: NAV_LINKS.map((link)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$taff$2f$web_design$2f$flamerzz$2f$flamerzz_site$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$taff$2f$web_design$2f$flamerzz$2f$flamerzz_site$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                        href: link.href,
-                        className: "flex flex-col items-center",
-                        onClick: (e)=>{
-                            e.preventDefault(); // Empêche la navigation
-                            handleNavClick(link.sound);
-                        },
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$taff$2f$web_design$2f$flamerzz$2f$flamerzz_site$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "w-40 h-20 flex items-center justify-center",
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$taff$2f$web_design$2f$flamerzz$2f$flamerzz_site$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                src: link.image,
-                                alt: link.label,
-                                className: "w-full h-full object-contain"
+                className: "hidden md:flex w-full justify-between items-center px-8  bg-yellow-800 h-32",
+                children: NAV_LINKS.map((link)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$taff$2f$web_design$2f$flamerzz$2f$flamerzz_site$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex flex-col items-center justify-center group h-full",
+                        onClick: ()=>handleNavClick(link.sound),
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$taff$2f$web_design$2f$flamerzz$2f$flamerzz_site$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "w-40 h-20 flex items-center justify-center bg-yellow-400 border-2 border-black rounded-lg p-2 overflow-hidden",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$taff$2f$web_design$2f$flamerzz$2f$flamerzz_site$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                    src: link.image,
+                                    alt: link.label,
+                                    className: "w-full h-full object-contain drop-shadow-[0_0_5px_#000000] group-hover:scale-110 group-hover:-translate-y-2 transition-transform duration-300"
+                                }, void 0, false, {
+                                    fileName: "[project]/Desktop/taff/web_design/flamerzz/flamerzz_site/components/SiteHeader.tsx",
+                                    lineNumber: 88,
+                                    columnNumber: 15
+                                }, this)
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/taff/web_design/flamerzz/flamerzz_site/components/SiteHeader.tsx",
-                                lineNumber: 90,
-                                columnNumber: 15
+                                lineNumber: 87,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$taff$2f$web_design$2f$flamerzz$2f$flamerzz_site$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                className: "font-bold text-sm uppercase tracking-wider mt-2 text-yellow-400 drop-shadow-[0_0_2px_#000000] group-hover:text-white transition-colors",
+                                children: link.label
+                            }, void 0, false, {
+                                fileName: "[project]/Desktop/taff/web_design/flamerzz/flamerzz_site/components/SiteHeader.tsx",
+                                lineNumber: 95,
+                                columnNumber: 13
                             }, this)
-                        }, void 0, false, {
-                            fileName: "[project]/Desktop/taff/web_design/flamerzz/flamerzz_site/components/SiteHeader.tsx",
-                            lineNumber: 89,
-                            columnNumber: 13
-                        }, this)
-                    }, link.href, false, {
+                        ]
+                    }, link.href, true, {
                         fileName: "[project]/Desktop/taff/web_design/flamerzz/flamerzz_site/components/SiteHeader.tsx",
-                        lineNumber: 79,
+                        lineNumber: 81,
                         columnNumber: 11
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/Desktop/taff/web_design/flamerzz/flamerzz_site/components/SiteHeader.tsx",
-                lineNumber: 77,
+                lineNumber: 79,
                 columnNumber: 7
             }, this),
             menuOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$taff$2f$web_design$2f$flamerzz$2f$flamerzz_site$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
                 id: "mobile-nav",
-                className: "md:hidden flex flex-col border-t border-line/70 bg-paper w-full",
+                className: "md:hidden flex flex-col border-t-2 border-yellow-400 bg-black/80 w-full mt-4",
                 children: NAV_LINKS.map((link)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$taff$2f$web_design$2f$flamerzz$2f$flamerzz_site$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$taff$2f$web_design$2f$flamerzz$2f$flamerzz_site$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                         href: link.href,
-                        className: "px-6 py-4 border-b border-line/40 font-display text-xl text-center",
+                        className: "px-6 py-4 border-b-2 border-yellow-400 font-display text-xl text-center text-yellow-400 hover:bg-yellow-400 hover:text-black transition-colors",
                         onClick: (e)=>{
-                            e.preventDefault(); // Empêche la navigation
+                            e.preventDefault();
                             handleNavClick(link.sound);
                             setMenuOpen(false);
                         },
                         children: link.label
                     }, link.href, false, {
                         fileName: "[project]/Desktop/taff/web_design/flamerzz/flamerzz_site/components/SiteHeader.tsx",
-                        lineNumber: 107,
+                        lineNumber: 109,
                         columnNumber: 13
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/Desktop/taff/web_design/flamerzz/flamerzz_site/components/SiteHeader.tsx",
-                lineNumber: 102,
+                lineNumber: 104,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/Desktop/taff/web_design/flamerzz/flamerzz_site/components/SiteHeader.tsx",
-        lineNumber: 50,
+        lineNumber: 48,
         columnNumber: 5
     }, this);
 }

@@ -33,7 +33,6 @@ const NAV_LINKS = [
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Fonction pour jouer un son
   const playSound = (soundPath: string) => {
     const audio = new Audio(soundPath);
     audio.play().catch(error => {
@@ -41,23 +40,26 @@ export default function SiteHeader() {
     });
   };
 
-  // Gestion du clic sur un lien de navigation
   const handleNavClick = (soundPath: string) => {
     playSound(soundPath);
   };
 
   return (
-    <header className="flex flex-col items-center justify-between h-32">
+    <header className="flex flex-col w-full items-center justify-between bg-gradient-to-b from-gray-800 to-black p-4 shadow-2xl border-b-4 border-yellow-400 h-fitcontent">
       {/* Logo en haut au centre */}
-      <div className="flex justify-center w-full">
-        <Link href="/" className="header_logo">
-          <img src="/visual_assets/flamerz_logo.png" alt="Flamerz Logo" />
+      <div className="flex justify-center w-70 mb-4">
+        <Link href="/" className="flex justify-center">
+          <img
+            src="/visual_assets/flamerz_logo.png"
+            alt="Flamerz Logo"
+            className="drop-shadow-[0_0_10px_#FFD700] transform hover:scale-105 transition-transform duration-300"
+          />
         </Link>
       </div>
 
       {/* Bouton menu mobile */}
       <button
-        className="md:hidden font-body text-sm uppercase tracking-wide absolute top-4 left-4"
+        className="md:hidden font-body text-sm uppercase tracking-wide absolute top-6 left-4 bg-yellow-400 text-black px-3 py-1 rounded border-2 border-black hover:bg-yellow-300 transition-colors"
         onClick={() => setMenuOpen((v) => !v)}
         aria-expanded={menuOpen}
         aria-controls="mobile-nav"
@@ -68,32 +70,32 @@ export default function SiteHeader() {
       {/* Bouton panier mobile */}
       <Link
         href="/panier"
-        className="md:hidden font-body text-sm uppercase tracking-wide absolute top-4 right-4"
+        className="md:hidden font-body text-sm uppercase tracking-wide absolute top-6 right-4 bg-yellow-400 text-black px-3 py-1 rounded border-2 border-black hover:bg-yellow-300 transition-colors"
       >
         Panier
       </Link>
 
       {/* Navigation desktop en bas */}
-      <nav className="hidden md:flex w-full justify-between px-8">
+      <nav className="hidden md:flex w-full justify-between items-center px-8  bg-yellow-800 h-32">
         {NAV_LINKS.map((link) => (
-          <Link
+          <div
             key={link.href}
-            href={link.href}
-            className="flex flex-col items-center"
-            onClick={(e) => {
-              e.preventDefault(); // Empêche la navigation
-              handleNavClick(link.sound);
-            }}
+            className="flex flex-col items-center justify-center group h-full"
+            onClick={() => handleNavClick(link.sound)}
           >
             {/* Conteneur de taille fixe pour les images */}
-            <div className="w-40 h-20 flex items-center justify-center">
+            <div className="w-40 h-20 flex items-center justify-center bg-yellow-400 border-2 border-black rounded-lg p-2 overflow-hidden">
               <img
                 src={link.image}
                 alt={link.label}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain drop-shadow-[0_0_5px_#000000] group-hover:scale-110 group-hover:-translate-y-2 transition-transform duration-300"
               />
             </div>
-          </Link>
+            {/* Label plus visible */}
+            <span className="font-bold text-sm uppercase tracking-wider mt-2 text-yellow-400 drop-shadow-[0_0_2px_#000000] group-hover:text-white transition-colors">
+              {link.label}
+            </span>
+          </div>
         ))}
       </nav>
 
@@ -101,15 +103,15 @@ export default function SiteHeader() {
       {menuOpen && (
         <nav
           id="mobile-nav"
-          className="md:hidden flex flex-col border-t border-line/70 bg-paper w-full"
+          className="md:hidden flex flex-col border-t-2 border-yellow-400 bg-black/80 w-full mt-4"
         >
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="px-6 py-4 border-b border-line/40 font-display text-xl text-center"
+              className="px-6 py-4 border-b-2 border-yellow-400 font-display text-xl text-center text-yellow-400 hover:bg-yellow-400 hover:text-black transition-colors"
               onClick={(e) => {
-                e.preventDefault(); // Empêche la navigation
+                e.preventDefault();
                 handleNavClick(link.sound);
                 setMenuOpen(false);
               }}
