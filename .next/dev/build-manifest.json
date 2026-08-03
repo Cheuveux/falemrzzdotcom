@@ -1,6 +1,30 @@
 {
   "pages": {
-    "/_app": []
+    "/_app": [
+      "static/chunks/11wt_next_dist_compiled_1cb8336._.js",
+      "static/chunks/11wt_next_dist_shared_lib_1bmv1h_._.js",
+      "static/chunks/11wt_next_dist_client_12ynvgp._.js",
+      "static/chunks/11wt_next_dist_0xisq_m._.js",
+      "static/chunks/11wt_next_app_1ux8ehg.js",
+      "static/chunks/[next]_entry_page-loader_ts_1q6j1ly._.js",
+      "static/chunks/11wt_react-dom_1f2qh1h._.js",
+      "static/chunks/11wt_1tlme5a._.js",
+      "static/chunks/[root-of-the-server]__04a2zml._.js",
+      "static/chunks/Desktop_taff_web_design_flamerzz_flamerzz_site_pages__app_0du2_q-._.js",
+      "static/chunks/turbopack-Desktop_taff_web_design_flamerzz_flamerzz_site_pages__app_19jq7kt._.js"
+    ],
+    "/_error": [
+      "static/chunks/11wt_next_dist_compiled_1cb8336._.js",
+      "static/chunks/11wt_next_dist_shared_lib_1ryh5ya._.js",
+      "static/chunks/11wt_next_dist_client_12ynvgp._.js",
+      "static/chunks/11wt_next_dist_02_4q97._.js",
+      "static/chunks/[next]_entry_page-loader_ts_0eu4iub._.js",
+      "static/chunks/11wt_react-dom_1f2qh1h._.js",
+      "static/chunks/11wt_1tlme5a._.js",
+      "static/chunks/[root-of-the-server]__0iv_wkq._.js",
+      "static/chunks/Desktop_taff_web_design_flamerzz_flamerzz_site_pages__error_0du2_q-._.js",
+      "static/chunks/turbopack-Desktop_taff_web_design_flamerzz_flamerzz_site_pages__error_029rsm3._.js"
+    ]
   },
   "devFiles": [],
   "polyfillFiles": [

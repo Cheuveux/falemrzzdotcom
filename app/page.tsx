@@ -3,14 +3,14 @@ import SiteHeader from "@/components/SiteHeader";
 // import ProductGrid from "@/components/ProductGrid";
 // import ArticleTeasers from "@/components/ArticleTeasers";
 import SiteFooter from "@/components/SiteFooter";
-import { getFeaturedProducts, getArticles } from "@/lib/shopify";
+import { getProducts, getFeaturedProducts} from "@/lib/shopify";
 
 export default async function Home() {
   // Aujourd'hui : lecture de fichiers JSON locaux (lib/mock-data)
   // Demain : ces mêmes fonctions liront la vraie Storefront API Shopify
   const [products, articles] = await Promise.all([
     getFeaturedProducts(4),
-    getArticles(),
+    getProducts(),
   ]);
 
   return (

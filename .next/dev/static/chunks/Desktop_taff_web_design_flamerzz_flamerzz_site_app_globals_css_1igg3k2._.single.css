@@ -446,10 +446,6 @@
     aspect-ratio: 4 / 3;
   }
 
-  .h-15 {
-    height: calc(var(--spacing) * 15);
-  }
-
   .h-18 {
     height: calc(var(--spacing) * 18);
   }
@@ -623,10 +619,6 @@
 
   .border-yellow-700 {
     border-color: var(--color-yellow-700);
-  }
-
-  .bg-black {
-    background-color: var(--color-black);
   }
 
   .bg-black\/80 {
