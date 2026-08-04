@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const NAV_LINKS = [
@@ -30,23 +31,41 @@ const NAV_LINKS = [
   },
 ];
 
+// Durée max d'attente avant de naviguer quand même (fichier son cassé, autoplay bloqué, etc.)
+const SOUND_TIMEOUT_FALLBACK = 4000;
+
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
 
-  const playSound = (soundPath: string) => {
+  const navigateAfterSound = (href: string, soundPath: string) => {
     const audio = new Audio(soundPath);
-    audio.play().catch(error => {
+    let hasNavigated = false;
+
+    const goTo = () => {
+      if (hasNavigated) return;
+      hasNavigated = true;
+      router.push(href);
+    };
+
+    audio.addEventListener("ended", goTo);
+
+    audio.play().catch((error) => {
       console.error("Erreur lors de la lecture du son :", error);
+      goTo(); // si le son ne peut pas jouer, on navigue quand même
     });
+
+    // Filet de sécurité si "ended" ne se déclenche jamais
+    setTimeout(goTo, SOUND_TIMEOUT_FALLBACK);
   };
 
-  const handleNavClick = (soundPath: string) => {
-    playSound(soundPath);
+  const handleNavClick = (e: React.MouseEvent, href: string, sound: string) => {
+    e.preventDefault();
+    navigateAfterSound(href, sound);
   };
 
   return (
     <header className="flex flex-col w-full items-center justify-between bg-gradient-to-b from-gray-800 to-black shadow-2xl border-b-4 border-yellow-400 h-fitcontent">
-      {/* Logo en haut au centre */}
       <div className="flex justify-center w-70 mb-4">
         <Link href="/" className="flex justify-center">
           <img
@@ -57,7 +76,6 @@ export default function SiteHeader() {
         </Link>
       </div>
 
-      {/* Bouton menu mobile */}
       <button
         className="md:hidden font-body text-sm uppercase tracking-wide absolute top-6 left-4 bg-yellow-400 text-black px-3 py-1 rounded border-2 border-black hover:bg-yellow-300 transition-colors"
         onClick={() => setMenuOpen((v) => !v)}
@@ -67,7 +85,6 @@ export default function SiteHeader() {
         {menuOpen ? "Fermer" : "Menu"}
       </button>
 
-      {/* Bouton panier mobile */}
       <Link
         href="/panier"
         className="md:hidden font-body text-sm uppercase tracking-wide absolute top-6 right-4 bg-yellow-400 text-black px-3 py-1 rounded border-2 border-black hover:bg-yellow-300 transition-colors"
@@ -75,16 +92,14 @@ export default function SiteHeader() {
         Panier
       </Link>
 
-      {/* Navigation desktop en bas */}
-      <nav className="md:flex w-full justify-around items-center border-b-5 border-t-5 border-yellow-700 bg-yellow-800 h-32 ">
-
+      <nav className="md:flex w-full justify-around items-center border-b-5 border-t-5 border-yellow-700 bg-yellow-800 h-32">
         {NAV_LINKS.map((link) => (
-          <div
+          <Link
             key={link.href}
+            href={link.href}
             className="flex flex-col items-center justify-center group h-full"
-            onClick={() => handleNavClick(link.sound)}
+            onClick={(e) => handleNavClick(e, link.href, link.sound)}
           >
-            {/* Conteneur de taille fixe pour les images */}
             <div className="w-40 h-20 flex items-center justify-center bg-yellow-400 border-2 border-black rounded-lg p-2 overflow-hidden">
               <img
                 src={link.image}
@@ -92,15 +107,13 @@ export default function SiteHeader() {
                 className="w-full h-full object-contain drop-shadow-[0_0_5px_#000000] group-hover:scale-110 group-hover:-translate-y-2 transition-transform duration-300"
               />
             </div>
-            {/* Label plus visible */}
             <span className="font-bold text-sm uppercase tracking-wider mt-2 text-yellow-400 drop-shadow-[0_0_2px_#000000] group-hover:text-white transition-colors">
               {link.label}
             </span>
-          </div>
+          </Link>
         ))}
       </nav>
 
-      {/* Navigation mobile */}
       {menuOpen && (
         <nav
           id="mobile-nav"
@@ -112,8 +125,7 @@ export default function SiteHeader() {
               href={link.href}
               className="px-6 py-4 border-b-2 border-yellow-400 font-display text-xl text-center text-yellow-400 hover:bg-yellow-400 hover:text-black transition-colors"
               onClick={(e) => {
-                e.preventDefault();
-                handleNavClick(link.sound);
+                handleNavClick(e, link.href, link.sound);
                 setMenuOpen(false);
               }}
             >
