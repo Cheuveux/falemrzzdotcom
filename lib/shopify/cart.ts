@@ -52,3 +52,14 @@ export async function addToCart(cartId: string, variantId: string, quantity: num
   );
   return mapCart(data.cartLinesAdd.cart);
 }
+
+const CART_QUERY = `
+  query Cart($id: ID!) {
+    cart(id: $id) { ${CART_FIELDS} }
+  }
+`;
+
+export async function getCart(cartId: string): Promise<Cart> {
+  const data = await shopifyFetch<{ cart: ShopifyCartNode }>(CART_QUERY, { id: cartId });
+  return mapCart(data.cart);
+}

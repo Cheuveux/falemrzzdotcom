@@ -1,7 +1,7 @@
 import { shopifyFetch, isShopifyConfigured } from "./client";
 import { mapProduct } from "./mappers";
 import type { Product, ShopifyProductNode } from "./types";
-import productsMock from "../mock-data/products.json";
+// import productsMock from "../mock-data/products.json";
 
 const PRODUCT_FIELDS = `
   id handle title description availableForSale
@@ -28,7 +28,7 @@ const PRODUCT_BY_HANDLE_QUERY = `
 `;
 
 export async function getProducts(): Promise<Product[]> {
-  if (!isShopifyConfigured) return productsMock as Product[];
+  // if (!isShopifyConfigured) return productsMock as Product[];
 
   const data = await shopifyFetch<{ products: { edges: { node: ShopifyProductNode }[] } }>(
     PRODUCTS_QUERY, { first: 20 }
@@ -37,10 +37,10 @@ export async function getProducts(): Promise<Product[]> {
 }
 
 export async function getProductByHandle(handle: string): Promise<Product | null> {
-  if (!isShopifyConfigured) {
-    const product = (productsMock as Product[]).find((p) => p.handle === handle);
-    return product ?? null;
-  }
+  // if (!isShopifyConfigured) {
+  //   const product = (productsMock as Product[]).find((p) => p.handle === handle);
+  //   return product ?? null;
+  // }
 
   const data = await shopifyFetch<{ productByHandle: ShopifyProductNode | null }>(
     PRODUCT_BY_HANDLE_QUERY, { handle }

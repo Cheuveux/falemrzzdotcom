@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter } from "next/font/google";
+import SiteHeader from "@/components/SiteHeader";
+import PageTransition from "@/components/pageTransition";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -27,7 +29,10 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`${fraunces.variable} ${inter.variable} antialiased`}>
-        {children}
+        <SiteHeader/>
+        <PageTransition>
+          {children}
+        </PageTransition>
       </body>
     </html>
   );

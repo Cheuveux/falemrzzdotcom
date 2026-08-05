@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const NAV_LINKS = [
   {
@@ -37,6 +37,7 @@ const SOUND_TIMEOUT_FALLBACK = 4000;
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
+  const [cartCount, setCartCount] = useState<number>(0);
 
   const navigateAfterSound = (href: string, soundPath: string) => {
     const audio = new Audio(soundPath);
@@ -52,10 +53,9 @@ export default function SiteHeader() {
 
     audio.play().catch((error) => {
       console.error("Erreur lors de la lecture du son :", error);
-      goTo(); // si le son ne peut pas jouer, on navigue quand même
+      goTo();
     });
 
-    // Filet de sécurité si "ended" ne se déclenche jamais
     setTimeout(goTo, SOUND_TIMEOUT_FALLBACK);
   };
 
@@ -64,74 +64,123 @@ export default function SiteHeader() {
     navigateAfterSound(href, sound);
   };
 
+  useEffect(() => {
+    let mounted = true;
+    const fetchCart = async () => {
+      try {
+        const res = await fetch('/api/cart');
+        const json = await res.json();
+        if (mounted) setCartCount(json.totalQuantity ?? 0);
+      } catch {
+        if (mounted) setCartCount(0);
+      }
+    };
+    fetchCart();
+
+    const onUpdate = () => fetchCart();
+    window.addEventListener('cartUpdated', onUpdate);
+    return () => {
+      mounted = false;
+      window.removeEventListener('cartUpdated', onUpdate);
+    };
+  }, []);
+
   return (
-    <header className="flex flex-col w-full items-center justify-between bg-gradient-to-b from-gray-800 to-black shadow-2xl border-b-4 border-yellow-400 h-fitcontent">
-      <div className="flex justify-center w-70 mb-4">
-        <Link href="/" className="flex justify-center">
+    <header className="w-full text-[#2B2B28]">
+      {/* Grid 3 colonnes : le logo reste centré peu importe la largeur du bouton menu */}
+      <div className="max-w-4xl mx-auto grid grid-cols-[1fr_auto_1fr] items-center">
+        <div />
+
+        <Link href="/" className="h-50 flex items-center justify-center">
           <img
             src="/visual_assets/flamerz_logo.png"
             alt="Flamerz Logo"
-            className="drop-shadow-[0_0_10px_#FFD700] transform hover:scale-105 transition-transform duration-300"
+            className="h-full w-auto object-contain"
           />
         </Link>
+
+        <div className="flex justify-end items-center">
+          <Link href="/cart" className="relative mr-3 flex items-center">
+            <img
+              src={cartCount > 0 ? "/flamerzz_nav_icons/cart_full.svg" : "/flamerzz_nav_icons/cart_empty.svg"}
+              alt="Panier"
+              className="h-8 w-auto"
+            />
+            {cartCount > 0 && (
+              <span className="absolute -top-1 -right-2 bg-[#E8231B] text-white rounded-full px-1 text-xs font-black">
+                {cartCount}
+              </span>
+            )}
+          </Link>
+
+          <button
+            className="md:hidden text-xs uppercase tracking-widest border border-[#c9c4b4] px-3 py-1.5 hover:bg-[#EFEAD9] transition-colors"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
+          >
+            {menuOpen ? "Fermer" : "Menu"}
+          </button>
+        </div>
       </div>
 
-      <button
-        className="md:hidden font-body text-sm uppercase tracking-wide absolute top-6 left-4 bg-yellow-400 text-black px-3 py-1 rounded border-2 border-black hover:bg-yellow-300 transition-colors"
-        onClick={() => setMenuOpen((v) => !v)}
-        aria-expanded={menuOpen}
-        aria-controls="mobile-nav"
-      >
-        {menuOpen ? "Fermer" : "Menu"}
-      </button>
-
-      <Link
-        href="/panier"
-        className="md:hidden font-body text-sm uppercase tracking-wide absolute top-6 right-4 bg-yellow-400 text-black px-3 py-1 rounded border-2 border-black hover:bg-yellow-300 transition-colors"
-      >
-        Panier
-      </Link>
-
-      <nav className="md:flex w-full justify-around items-center border-b-5 border-t-5 border-yellow-700 bg-yellow-800 h-32">
-        {NAV_LINKS.map((link) => (
-          <Link
+      {/* Nav desktop — colonne full-width, hover en balayage gauche->droite, bordures épaisses */}
+      <nav className="hidden md:block border-t-5 border-dotted border-[#c9c4b4]">
+        <div className="flex flex-col">
+          {NAV_LINKS.map((link, i) => (
+           <Link
             key={link.href}
             href={link.href}
-            className="flex flex-col items-center justify-center group h-full"
             onClick={(e) => handleNavClick(e, link.href, link.sound)}
+            className="
+              group relative block overflow-hidden
+              shadow-[0_1px_2px_rgba(43,43,40,0.06)]
+              border-b-2 border-dotted border-[#c9c4b4]
+            "
           >
-            <div className="w-40 h-20 flex items-center justify-center bg-yellow-400 border-2 border-black rounded-lg p-2 overflow-hidden">
-              <img
-                src={link.image}
-                alt={link.label}
-                className="w-full h-full object-contain drop-shadow-[0_0_5px_#000000] group-hover:scale-110 group-hover:-translate-y-2 transition-transform duration-300"
-              />
-            </div>
-            <span className="font-bold text-sm uppercase tracking-wider mt-2 text-yellow-400 drop-shadow-[0_0_2px_#000000] group-hover:text-white transition-colors">
+            <span
+              className="absolute inset-0 bg-[#f2f2eb] scale-x-0 group-hover:scale-x-100
+                        origin-left transition-transform duration-1000 ease-out"
+              aria-hidden="true"
+            />
+            <span className="relative z-10 block px-6 py-3 text-sm uppercase tracking-widest text-[#5c5c54] group-hover:text-[#2B2B28] transition-colors duration-500">
               {link.label}
             </span>
           </Link>
-        ))}
+          ))}
+        </div>
       </nav>
 
+      {/* Nav mobile — même logique colonne + pointillés, affichée via toggle */}
       {menuOpen && (
         <nav
           id="mobile-nav"
-          className="md:hidden flex flex-col border-t-2 border-yellow-400 bg-black/80 w-full mt-4"
+          className="md:hidden border-t-2 border-dotted border-[#c9c4b4]"
         >
-          {NAV_LINKS.map((link) => (
-            <Link
+          <div className="flex flex-col">
+            {NAV_LINKS.map((link, i) => (
+             <Link
               key={link.href}
               href={link.href}
-              className="px-6 py-4 border-b-2 border-yellow-400 font-display text-xl text-center text-yellow-400 hover:bg-yellow-400 hover:text-black transition-colors"
-              onClick={(e) => {
-                handleNavClick(e, link.href, link.sound);
-                setMenuOpen(false);
-              }}
+              onClick={(e) => handleNavClick(e, link.href, link.sound)}
+              className="
+                group relative block overflow-hidden
+                shadow-[0_1px_2px_rgba(43,43,40,0.06)]
+                hover:shadow-[0_2px_6px_rgba(43,43,40,0.10)]
+                transition-shadow duration-300
+              "
             >
-              {link.label}
+              <span
+                className="absolute inset-0 bg-[#f2f2e8] scale-x-0 group-hover:scale-x-100
+                          origin-left transition-transform duration-500 ease-out"
+                aria-hidden="true"
+              />
+              <span className="relative z-10 block px-6 py-3 text-sm uppercase tracking-widest text-[#5c5c54] group-hover:text-[#2B2B28] transition-colors duration-500">
+                {link.label}
+              </span>
             </Link>
-          ))}
+            ))}
+          </div>
         </nav>
       )}
     </header>
