@@ -1,10 +1,12 @@
 import { cookies } from "next/headers";
 import { getCart } from "@/lib/shopify/cart";
 import { formatPrice } from "@/lib/shopify/format";
+import CartLineItem from "@/components/CartLineItem";
 
 export default async function CartPage() {
   const cookieStore = await cookies();
   const id = cookieStore.get("cartId")?.value;
+
   if (!id) {
     return (
       <main className="min-h-screen bg-[#1A2C6B] py-16 px-6">
@@ -28,20 +30,20 @@ export default async function CartPage() {
         ) : (
           <div className="space-y-4">
             {cart.lines.map((line) => (
-              <div key={line.id} className="flex items-center gap-4 border-b pb-4">
-                <img src={line.image} alt={line.title} className="w-24 h-24 object-cover rounded-xl" />
-                <div className="flex-1">
-                  <div className="font-black uppercase">{line.title}</div>
-                  <div className="text-sm text-[#5c5c54]">{line.quantity} × {formatPrice({ min: line.price, currency: line.currency })}</div>
-                </div>
-                <div className="font-black">{formatPrice({ min: line.price * line.quantity, currency: line.currency })}</div>
-              </div>
+              <CartLineItem key={line.id} line={line} />
             ))}
+
             <div className="text-right font-black text-xl mt-4">
               Total: {formatPrice({ min: cart.totalAmount, currency: cart.currency })}
             </div>
+
             <div className="mt-6">
-              <a href={cart.checkoutUrl} className="inline-block bg-[#E8231B] text-white border-4 border-black rounded-2xl py-3 px-6 font-black">Passer à la caisse</a>
+             <a 
+                href={cart.checkoutUrl}
+                className="inline-block bg-[#E8231B] text-white border-4 border-black rounded-2xl py-3 px-6 font-black"
+              >
+                Passer à la caisse
+              </a>
             </div>
           </div>
         )}

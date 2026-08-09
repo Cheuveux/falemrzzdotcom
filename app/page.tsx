@@ -1,7 +1,7 @@
-import SiteHeader from "@/components/SiteHeader";
 // import Hero from "@/components/Hero";
 // import ProductGrid from "@/components/ProductGrid";
 // import ArticleTeasers from "@/components/ArticleTeasers";
+import MainPageHeader from '@/components/layerNav/mainPageHeader'
 import SiteFooter from "@/components/SiteFooter";
 import { getProducts, getFeaturedProducts} from "@/lib/shopify";
 
@@ -15,6 +15,7 @@ export default async function Home() {
 
   return (
     <main className="min-h-100vh">
+      <MainPageHeader/>
       {/* <Hero /> */}
       {/* <ProductGrid products={products} /> */}
       {/* <ArticleTeasers articles={articles} /> */}
