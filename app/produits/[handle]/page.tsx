@@ -15,9 +15,9 @@ export default async function ProductPage ({
 	if (!product)
 		notFound();
 	return (
-	<main className="bg-[#1A2C6B] min-h-screen py-16 px-6 lg:px-10">
+	<main className="bg-[#1A2C6B] min-h-screen py-0 px-6 lg:px-10">
       <EshopHeader/>
-      <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
+      <div className="max-w-5xl min-h-[80vh] mx-auto grid md:grid-cols-2 gap-10 flex items-center">
         {/* Galerie image */}
         <div className="border-4 border-black rounded-3xl overflow-hidden bg-white shadow-[8px_8px_0_#000]">
           <div className="relative aspect-square">

@@ -7,7 +7,7 @@ const CARD_BG = ["bg-[#FFF7D6]", "bg-[#FFE3E0]", "bg-[#E1EAFF]", "bg-[#E4F7E0]"]
 
 export default function ProductGrid({ products }: { products: Product[] }) {
   return (
-    <section className="px-6 lg:px-10 py-20">
+    <section className="px-6 lg:px-10 py-20 bg-[#1A2C6B]">
       <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-x-8 gap-y-14">
         {products.map((product, index) => (
           <Link

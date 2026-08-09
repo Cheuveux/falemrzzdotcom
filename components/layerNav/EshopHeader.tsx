@@ -24,8 +24,8 @@ const NAV_LINKS = [
     sound: "/sound_assets/hype flamerz low pitch.mp3"
   },
   {
-    label: "Atelier",
-    href: "/atelier",
+    label: "Home",
+    href: "/",
     image: "/flamerzz_nav_icons/flamerzz_beatstore.png",
     sound: "/sound_assets/hype flamerz low pitch.mp3"
   },
@@ -92,7 +92,7 @@ export default function EshopHeader() {
 
         <Link href="/" className="h-32 flex items-center justify-center">
           <img
-            src="/visual_assets/flamerz_logo.png"
+            src="/flamerzz_nav_icons/flamerzz_eshop.png"
             alt="Flamerz Logo"
             className="h-full w-auto object-contain drop-shadow-[3px_3px_0_#000]"
           />
