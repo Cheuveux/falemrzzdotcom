@@ -1,5 +1,6 @@
 import ProductGrid from "@/components/ProductGrid";
 import { getProducts } from "@/lib/shopify/products";
+import EshopHeader from "@/components/layerNav/EshopHeader";
 
 export default async function EshopPage() {
   const products = await getProducts();
@@ -18,6 +19,7 @@ export default async function EshopPage() {
       />
 
       {/* Voile pour garder le contenu lisible par-dessus le pattern */}
+      <EshopHeader/>
       <div className="fixed inset-0 " aria-hidden="true" />
 
       <div className="relative z-10">

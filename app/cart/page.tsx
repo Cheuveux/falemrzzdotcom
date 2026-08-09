@@ -2,6 +2,7 @@ import { cookies } from "next/headers";
 import { getCart } from "@/lib/shopify/cart";
 import { formatPrice } from "@/lib/shopify/format";
 import CartLineItem from "@/components/CartLineItem";
+import EshopHeader from "@/components/layerNav/EshopHeader";
 
 export default async function CartPage() {
   const cookieStore = await cookies();
@@ -22,7 +23,8 @@ export default async function CartPage() {
 
   return (
     <main className="min-h-screen bg-[#1A2C6B] py-16 px-6">
-      <div className="max-w-5xl mx-auto bg-white border-4 border-black rounded-3xl p-8">
+      <EshopHeader/>
+      <div className="max-w-5xl mx-auto bg-white border-4 border-black rounded-3xl p-8 mt-10">
         <h1 className="font-black uppercase text-3xl text-[#1A2C6B] mb-6">Panier</h1>
 
         {cart.lines.length === 0 ? (

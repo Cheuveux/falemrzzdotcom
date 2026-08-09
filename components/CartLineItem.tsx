@@ -21,6 +21,7 @@ export default function CartLineItem({ line }: { line: CartLine }) {
   };
 
   return (
+    
     <div
       className={`
         flex items-center gap-4 border-b-4 border-dotted border-[#c9c4b4] pb-4

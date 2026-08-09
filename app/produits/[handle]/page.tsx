@@ -2,6 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getProductByHandle, formatPrice } from "@/lib/shopify";
 import AddToCartForm from "@/components/AddToCartForm";
+import EshopHeader from "@/components/layerNav/EshopHeader";
 
 export default async function ProductPage ({
 	params,
@@ -15,6 +16,7 @@ export default async function ProductPage ({
 		notFound();
 	return (
 	<main className="bg-[#1A2C6B] min-h-screen py-16 px-6 lg:px-10">
+      <EshopHeader/>
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
         {/* Galerie image */}
         <div className="border-4 border-black rounded-3xl overflow-hidden bg-white shadow-[8px_8px_0_#000]">
