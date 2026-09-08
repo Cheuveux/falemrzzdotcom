@@ -57,8 +57,8 @@ export default function RetroHomeLayout({ cards }: RetroHomeLayoutProps) {
 			<div className="mt-3">
 			  <p className='text-xs'> Powered by Shopify @2026</p>
 			  <p className='text-xs'> Certified Hood Classic</p> 
-			  <p className='text-xs'> Promoted by Black Rock Edge funders</p>
-			  <p className='text-xs'> Blessed by contemporary Godfellas</p>
+			  <p className='text-xs'> Promoted by Black Rock edge-funders</p>
+			  <p className='text-xs'> Blessed by contemporary Goodfellas</p>
 			</div>
         </div>
       </div>

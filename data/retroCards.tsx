@@ -2,6 +2,7 @@ import React from 'react';
 import { RetroCard } from '@/types/RetroCard';
 
 export const retroCards: RetroCard[] = [
+  // ARTICLE NUM 1
   {
     title: "Website Manifesto",
     content: (
@@ -29,13 +30,15 @@ export const retroCards: RetroCard[] = [
     ),
     techInfos: ["Poids: 1kg", "Couleur: Bleu", "Matériau: Plastique"],
   },
+  // ARTICLE NUM 2
   {
-    title: "Produit 2",
+    title: "No one should be prepared",
     content: <div>Contenu du produit 2</div>,
     techInfos: ["Poids: 2kg", "Couleur: Rouge", "Matériau: Métal"],
   },
+  // ARTICLE NUM 3
   {
-    title: "Produit 3",
+    title: "Watch Wacka Flocka tweaks the fuck out",
     content: <div>Contenu du produit 3</div>,
     techInfos: ["Poids: 500g", "Couleur: Vert", "Matériau: Bois"],
   },
