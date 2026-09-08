@@ -86,12 +86,15 @@ export default function MainPageHeader() {
   }, []);
 
   return (
-    <header className="w-full text-[#2B2B28]">
+    // bg-white nécessaire pour que le shadow se voie (sinon transparent sur transparent) :
+    // l'ombre est portée par le header entier, pas par le div interne max-w-4xl,
+    // sinon elle serait coupée par le centrage au lieu de courir sur toute la largeur.
+    <header className="w-full text-[#2B2B28] shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]">
       {/* Grid 3 colonnes : le logo reste centré peu importe la largeur du bouton menu */}
       <div className="max-w-4xl mx-auto grid grid-cols-[1fr_auto_1fr] items-center">
         <div />
 
-        <Link href="/" className="h-50 flex items-center justify-center">
+        <Link href="/" className="h-25 flex items-center justify-center">
           <img
             src="/visual_assets/flamerz_logo.png"
             alt="Flamerz Logo"
@@ -125,7 +128,7 @@ export default function MainPageHeader() {
       </div>
 
       {/* Nav desktop — colonne full-width, hover en balayage gauche->droite, bordures épaisses */}
-      <nav className="hidden md:block border-t-5 border-dotted border-[#c9c4b4]">
+      <nav className="hidden md:block">
         <div className="flex flex-col">
           {NAV_LINKS.map((link, i) => (
            <Link

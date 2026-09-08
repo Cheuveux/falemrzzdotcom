@@ -6,8 +6,6 @@ export default async function Home() {
   return (
     <main className="min-h-100vh">
       <MainPageHeader/>
-      {/* <Hero /> */}
-      {/* <ProductGrid products={products} /> */}
       <HomePage/>
     </main>
   );
