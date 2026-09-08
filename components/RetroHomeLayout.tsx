@@ -1,47 +1,65 @@
 // components/RetroHomeLayout.tsx
-import React, { ReactNode } from 'react';
+"use client";
+
+import React, { useState } from 'react';
+import { RetroCard } from '@/types/RetroCard';
 
 interface RetroHomeLayoutProps {
-  leftContent: ReactNode;
-  rightTopTitles: string[];
-  rightBottomInfo: ReactNode;
+  cards: RetroCard[];
 }
 
-export default function RetroHomeLayout({
-  leftContent,
-  rightTopTitles,
-  rightBottomInfo,
-}: RetroHomeLayoutProps) {
+export default function RetroHomeLayout({ cards }: RetroHomeLayoutProps) {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const selectedCard = cards[selectedIndex];
+
   return (
-    <div className="flex h-80vh w-full p-4 gap-4">
-      {/* Colonne de gauche (pleine) */}
+    <div className="flex h-[60vh] w-full p-4 gap-4">
+      {/* Colonne de gauche avec hauteur fixe et scroll interne */}
       <div className="flex-1 bg-white p-4 rounded-lg shadow-inner border-4 border-gray-400 border-t-white border-l-white">
-        {leftContent}
+        {/* Conteneur interne avec scroll */}
+        <div className="h-full overflow-y-auto retro-scrollbar">
+          {selectedCard?.content}
+        </div>
       </div>
 
-      {/* Colonne de droite (divisée en deux) */}
+      {/* Colonne de droite (inchangée) */}
       <div className="w-80 flex flex-col gap-4">
-        {/* Partie haute : titres */}
-        <div className="flex-1 bg-white p-4 rounded-lg shadow-inner border-4 border-gray-400 border-t-white border-l-white">
-          <h2 className="text-lg font-bold mb-2 text-gray-800 bg-gray-200 p-1 rounded">Contenus</h2>
-          <div className="space-y-2">
-            {rightTopTitles.map((title, index) => (
-              <div
-                key={index}
-                className="p-2 bg-blue-100 border-2 border-blue-400 border-t-white border-l-white rounded"
-              >
-                {title}
-              </div>
-            ))}
-          </div>
-        </div>
+       <div className="flex-1 bg-white p-4 rounded-lg shadow-inner border-4 border-gray-400 border-t-white border-l-white">
+ 		 <h2 className="text-lg font-bold mb-2 text-gray-800 bg-gray-100 p-1 rounded text-center">CONTENT</h2>
+			<div className="space-y-1">
+				{cards.map((card, index) => (
+				<div
+					key={index}
+					onClick={() => setSelectedIndex(index)}
+					className={`
+					p-1 cursor-pointer 
+					${index === selectedIndex
+						? 'text-purple-600 underline'  // ✅ Actif : violet + souligné + gras
+						: 'text-blue-600 underline hover:text-blue-800' // ✅ Inactif : bleu + souligné + effet hover
+					}
+					`}
+				>
+					{card.title}
+     			 </div>
+    ))}
+  </div>
+</div>
 
-        {/* Partie basse : infos fixes */}
         <div className="flex-1 bg-white p-4 rounded-lg shadow-inner border-4 border-gray-400 border-t-white border-l-white">
-          <h2 className="text-lg font-bold mb-2 text-gray-800 bg-gray-200 p-1 rounded">Informations</h2>
+          <h2 className="text-lg font-bold mb-2 text-gray-800 bg-gray-100 p-1 rounded">Instructions</h2>
           <div className="p-2 bg-gray-100 border-2 border-gray-400 border-t-white border-l-white rounded">
-            {rightBottomInfo}
+            <ul className="list-disc pl-5">
+              {selectedCard?.techInfos.map((info, index) => (
+                <li key={index}>{info}</li>
+              ))}
+            </ul>
           </div>
+			<div className="mt-3">
+			  <p className='text-xs'> Powered by Shopify @2026</p>
+			  <p className='text-xs'> Certified Hood Classic</p> 
+			  <p className='text-xs'> Promoted by Black Rock Edge funders</p>
+			  <p className='text-xs'> Promoted by Black Rock Edge funders</p>
+			</div>
         </div>
       </div>
     </div>

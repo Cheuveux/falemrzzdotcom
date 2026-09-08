@@ -70,3 +70,65 @@ body {
   display: flex;
   width: max-content;
 }
+
+
+/* Style de base pour la barre de défilement */
+.retro-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #808080 #c0c0c0;
+}
+
+/* Style WebKit (Chrome, Edge, Safari) */
+.retro-scrollbar::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+/* Piste (arrière-plan) */
+.retro-scrollbar::-webkit-scrollbar-track {
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  box-shadow: inset -1px -1px 0px #000000, inset 1px 1px 0px #ffffff;
+}
+
+/* Pouce (partie glissante) */
+.retro-scrollbar::-webkit-scrollbar-thumb {
+  background: #808080;
+  border: 2px solid;
+  border-color: #ffffff #404040 #404040 #ffffff;
+  box-shadow: inset -1px -1px 0px #000000, inset 1px 1px 0px #ffffff;
+}
+
+.retro-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+
+/* Boutons haut/bas */
+.retro-scrollbar::-webkit-scrollbar-button {
+  display: block;
+  height: 16px;
+  width: 16px;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  box-shadow: inset -1px -1px 0px #000000, inset 1px 1px 0px #ffffff;
+}
+
+/* Flèche vers le haut (Unicode) */
+.retro-scrollbar::-webkit-scrollbar-button:vertical:increment {
+  content: "▲";
+  color: #404040;
+  font-size: 10px;
+  text-align: center;
+  line-height: 16px;
+}
+
+/* Flèche vers le bas (Unicode) */
+.retro-scrollbar::-webkit-scrollbar-button:vertical:decrement {
+  content: "▼";
+  color: #404040;
+  font-size: 10px;
+  text-align: center;
+  line-height: 16px;
+}
