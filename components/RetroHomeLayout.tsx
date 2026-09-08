@@ -25,8 +25,8 @@ export default function RetroHomeLayout({ cards }: RetroHomeLayoutProps) {
       {/* Colonne de droite (inchangée) */}
       <div className="w-80 flex flex-col gap-4">
        <div className="flex-1 bg-white p-4 rounded-lg shadow-inner border-4 border-gray-400 border-t-white border-l-white">
- 		 <h2 className="text-lg font-bold mb-2 text-gray-800 bg-gray-100 p-1 rounded text-center">CONTENT</h2>
-			<div className="space-y-1">
+ 		 <h2 className="text-lg font-bold mb-2 text-gray-800 bg-[#FFFFF3] border-1 border-gray-200 p-1 rounded text-center">CONTENT</h2>
+			<div className="">
 				{cards.map((card, index) => (
 				<div
 					key={index}
@@ -46,8 +46,8 @@ export default function RetroHomeLayout({ cards }: RetroHomeLayoutProps) {
 </div>
 
         <div className="flex-1 bg-white p-4 rounded-lg shadow-inner border-4 border-gray-400 border-t-white border-l-white">
-          <h2 className="text-lg font-bold mb-2 text-gray-800 bg-gray-100 p-1 rounded">Instructions</h2>
-          <div className="p-2 bg-gray-100 border-2 border-gray-400 border-t-white border-l-white rounded">
+          <h2 className="text-lg font-bold mb-2 text-gray-800 bg-[#FFFFF3] border-1 border-gray-200 p-1 rounded">Instructions</h2>
+          <div className="p-2 bg-[#FFFFF3] border-2 border-gray-400 border-t-white border-l-white rounded">
             <ul className="list-disc pl-5">
               {selectedCard?.techInfos.map((info, index) => (
                 <li key={index}>{info}</li>
@@ -58,7 +58,7 @@ export default function RetroHomeLayout({ cards }: RetroHomeLayoutProps) {
 			  <p className='text-xs'> Powered by Shopify @2026</p>
 			  <p className='text-xs'> Certified Hood Classic</p> 
 			  <p className='text-xs'> Promoted by Black Rock Edge funders</p>
-			  <p className='text-xs'> Promoted by Black Rock Edge funders</p>
+			  <p className='text-xs'> Blessed by contemporary Godfellas</p>
 			</div>
         </div>
       </div>
