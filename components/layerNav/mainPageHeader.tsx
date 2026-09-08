@@ -137,12 +137,12 @@ export default function MainPageHeader() {
             onClick={(e) => handleNavClick(e, link.href, link.sound)}
             className="
               group relative block overflow-hidden
-              shadow-[0_1px_2px_rgba(43,43,40,0.06)]
+              shadow-[0_1px_2px_rgba(43,43,0,0.06)]
               border-b-2 border-dotted border-[#c9c4b4]
             "
           >
             <span
-              className="absolute inset-0 bg-[#f2f2eb] scale-x-0 group-hover:scale-x-100
+              className="absolute inset-0 bg-[#e5e5de] scale-x-0 group-hover:scale-x-100
                         origin-left transition-transform duration-1000 ease-out"
               aria-hidden="true"
             />
